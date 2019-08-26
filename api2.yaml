@@ -1,0 +1,105 @@
+openapi: "3.0.2"
+info:
+  title: "OpenWeatherMap API"
+  description: "<h1> Current Weather API </h1> Get the current weather"
+  version: "2.5"
+
+paths:
+  /localWeather:
+    post:
+      description: Send the localtion and it will return the local weather observation
+      requestBody:
+        content:
+          application/json:     # Media type
+            schema:           # Request body contents
+                $ref: '#/components/schemas/User' # Reference to an object
+
+
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Weather' # Reference to an object
+              example:
+                localResp:
+                  {"city":{"id":1851632,"name":"Shuzenji",
+                           "coord":{"lon":138.933334,"lat":34.966671},
+                           "country":"JP",
+                           "code":"200",
+                           "message":0.0045,
+                           "cnt":38,
+                           "list":[{
+                                     "dt":1406106000,
+                                     "main":{
+                                       "temp":298.77,
+                                       "temp_min":298.77,
+                                       "temp_max":298.774,
+                                       "pressure":1005.93,
+                                       "sea_level":1018.18,
+                                       "grnd_level":1005.93,
+                                       "humidity":87,
+                                       "temp_kf":0.26},
+                                     "weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],
+                                     "clouds":{"all":88},
+                                     "wind":{"speed":5.71,"deg":229.501},
+                                     "sys":{"pod":"d"},
+                                     "dt_txt":"2014-07-23 09:00:00"}
+                           ]}
+                  }
+
+        404:
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Weather not found
+                type: string
+                example: Not found
+
+components:
+  schemas:
+    Weather:
+      type: object
+      properties:
+        city:
+          type: object
+          properties:
+            cityId:
+              type: integer
+            name:
+              type: string
+        dt:
+          type: integer
+        temp:
+          type: string
+    User:
+      type: object
+      properties:
+        userId:
+          type: integer
+        name:
+          type: string
+
+        location:
+          type: object
+          properties:
+            latitute:
+              type: number
+              minimum: -90
+              maximum: +90
+            longitude:
+              type: number
+              minimum: -180
+              maximum: +180
+
+
+  examples:
+    LocalityRequestPayload:
+      value:
+        {
+          "longiture": "1.234",
+          "latitude": "23.123",
+          "country": "AUS"
+        }
