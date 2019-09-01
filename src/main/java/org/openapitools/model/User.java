@@ -9,22 +9,23 @@ import org.openapitools.model.UserLocation;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import org.springframework.hateoas.ResourceSupport;
 
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-26T16:02:54.626+10:00[Australia/Melbourne]")
 
-public class User extends ResourceSupport   {
+public class User   {
   @JsonProperty("userId")
   private Integer userId;
 
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("city")
+  private Integer city;
+
   @JsonProperty("location")
-  private UserLocation location = null;
+  private UserLocation location;
 
   public User userId(Integer userId) {
     this.userId = userId;
@@ -66,6 +67,26 @@ public class User extends ResourceSupport   {
     this.name = name;
   }
 
+  public User city(Integer city) {
+    this.city = city;
+    return this;
+  }
+
+  /**
+   * Get city
+   * @return city
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Integer getCity() {
+    return city;
+  }
+
+  public void setCity(Integer city) {
+    this.city = city;
+  }
+
   public User location(UserLocation location) {
     this.location = location;
     return this;
@@ -99,12 +120,13 @@ public class User extends ResourceSupport   {
     User user = (User) o;
     return Objects.equals(this.userId, user.userId) &&
         Objects.equals(this.name, user.name) &&
+        Objects.equals(this.city, user.city) &&
         Objects.equals(this.location, user.location);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, name, location);
+    return Objects.hash(userId, name, city, location);
   }
 
   @Override
@@ -114,6 +136,7 @@ public class User extends ResourceSupport   {
     
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -8,14 +8,12 @@ import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import org.springframework.hateoas.ResourceSupport;
 
 /**
  * WeatherCity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-26T16:02:54.626+10:00[Australia/Melbourne]")
 
-public class WeatherCity extends ResourceSupport   {
+public class WeatherCity   {
   @JsonProperty("cityId")
   private Integer cityId;
 

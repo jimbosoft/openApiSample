@@ -81,6 +81,8 @@ components:
           type: integer
         name:
           type: string
+        city:
+          type: integer
 
         location:
           type: object

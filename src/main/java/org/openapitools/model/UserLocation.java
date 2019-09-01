@@ -9,14 +9,12 @@ import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import org.springframework.hateoas.ResourceSupport;
 
 /**
  * UserLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-26T16:02:54.626+10:00[Australia/Melbourne]")
 
-public class UserLocation extends ResourceSupport   {
+public class UserLocation   {
   @JsonProperty("latitute")
   private BigDecimal latitute;
 

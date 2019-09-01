@@ -9,16 +9,14 @@ import org.openapitools.model.WeatherCity;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import org.springframework.hateoas.ResourceSupport;
 
 /**
  * Weather
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-26T16:02:54.626+10:00[Australia/Melbourne]")
 
-public class Weather extends ResourceSupport   {
+public class Weather   {
   @JsonProperty("city")
-  private WeatherCity city = null;
+  private WeatherCity city;
 
   @JsonProperty("dt")
   private Integer dt;
